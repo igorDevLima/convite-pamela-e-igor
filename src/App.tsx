@@ -1,12 +1,9 @@
-import { Button, HStack } from "@chakra-ui/react";
+import HomePage from "./presentation/pages/Home";
 
 function App() {
   return (
     <>
-      <HStack>
-        <Button>Click me</Button>
-        <Button>Click me</Button>
-      </HStack>
+      <HomePage />
     </>
   );
 }
