@@ -1,6 +1,15 @@
 import { Button, HStack } from "@chakra-ui/react";
-import { EMAIL_BODY, EMAIL_SUBJECT, EMAIL_TO } from "./constants";
+import {
+  DEFAULT_CENTER,
+  EMAIL_BODY,
+  EMAIL_SUBJECT,
+  EMAIL_TO,
+  GOOGLE_MAP_ID,
+  GOOGLE_MAPS_API_KEY,
+  POSITION,
+} from "./constants";
 import { useOpenGmail } from "./hooks/useOpenGmail";
+import { MapGoogle } from "./components/MapGoogle";
 
 export function IntroSection() {
   const { handleOpenGmail } = useOpenGmail({
@@ -14,6 +23,18 @@ export function IntroSection() {
       <HStack>
         <Button onClick={handleOpenGmail}>Confirmar presença</Button>
       </HStack>
+
+      <MapGoogle
+        apiKey={GOOGLE_MAPS_API_KEY}
+        mapId={GOOGLE_MAP_ID}
+        defaultCenter={DEFAULT_CENTER}
+        zoom={18.6}
+        tilt={0}
+        gestureHandling={"greedy"}
+        renderingType="VECTOR"
+        disableDefaultUI={true}
+        position={POSITION}
+      />
     </>
   );
 }
