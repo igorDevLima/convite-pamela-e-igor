@@ -1,5 +1,6 @@
 export const EMAIL_TO = import.meta.env.VITE_EMAIL_TO;
-export const EMAIL_SUBJECT = "Que alegria! Minha presença está confirmada! 🎉💍";
+export const EMAIL_SUBJECT =
+  "Que alegria! Minha presença está confirmada! 🎉💍";
 export const EMAIL_BODY = `Queridos Igor e Pâmela,
     
     É com imensa alegria que confirmo minha presença nesse dia tão especial! 💖✨
