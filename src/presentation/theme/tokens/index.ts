@@ -1,8 +1,7 @@
+import { colors } from "./colors";
+import { fonts } from "./fonts";
+
 export const tokens = {
-  colors: {
-    primary: { value: "#ffffff" },
-  },
-  fonts: {
-    body: { value: "system-ui, sans-serif" },
-  },
+  colors,
+  fonts,
 };
