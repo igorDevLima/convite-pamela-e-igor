@@ -1,4 +1,4 @@
-import { LayoutProps } from "@/infra/types/components/layout";
+import { LayoutProps } from "@/types";
 import { Box, Grid } from "@chakra-ui/react";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
