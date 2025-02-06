@@ -3,11 +3,10 @@
 import {
   ChakraProvider,
   ChakraProviderProps,
-  defaultSystem,
 } from "@chakra-ui/react";
 
-export function Provider({ children, value }: ChakraProviderProps) {
-  return (
-    <ChakraProvider value={value ?? defaultSystem}>{children}</ChakraProvider>
-  );
+interface ProviderProps extends ChakraProviderProps {}
+
+export function Provider({ children, value }: ProviderProps) {
+  return <ChakraProvider value={value}>{children}</ChakraProvider>;
 }
