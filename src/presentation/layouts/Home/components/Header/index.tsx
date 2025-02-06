@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "@chakra-ui/react";
+import { Box, BoxProps, Image } from "@chakra-ui/react";
 
 interface HeaderProps extends BoxProps {}
 
@@ -11,6 +11,7 @@ export function Header({ ...rest }: HeaderProps) {
       textAlign="center"
       {...rest}
     >
+      <Image src="../../../../../../public/logo.svg" />
       Header
     </Box>
   );
