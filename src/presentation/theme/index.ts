@@ -1,4 +1,4 @@
-import { createSystem, defineConfig } from "@chakra-ui/react";
+import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 import { breakpoints } from "./breakpoints";
 import { tokens } from "./tokens";
 import { semanticTokens } from "./semanticTokens";
@@ -14,4 +14,4 @@ const config = defineConfig({
   },
 });
 
-export const system = createSystem(config);
+export const system = createSystem(defaultConfig, config);
