@@ -29,7 +29,10 @@ export function Header({ ...rest }: HeaderProps) {
       backgroundColor={isScrolled ? "{colors.background}" : "transparent"}
       {...rest}
     >
-      <Image src="../../../../../../public/logo.svg" />
+      <Image
+        filter={`invert(${isScrolled ? "0%" : "100%"})`}
+        src={"public/logo.svg"}
+      />
     </Box>
   );
 }
