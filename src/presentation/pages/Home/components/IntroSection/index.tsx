@@ -1,20 +1,9 @@
-import {
-  AspectRatio,
-  Box,
-  Button,
-  Image,
-} from "@chakra-ui/react";
-
-import { useOpenGmail } from "./hooks/useOpenGmail";
-import { EMAIL_BODY, EMAIL_SUBJECT, EMAIL_TO } from "./constants";
+import { AspectRatio, Box, Button, Image } from "@chakra-ui/react";
 import { HeadingText } from "@/presentation/components/typografy/heading";
+import { useIntroSectionViewModel } from "@/viewmodels/useIntroSectionViewModel";
 
 export function IntroSection() {
-  const { handleOpenGmail } = useOpenGmail({
-    to: EMAIL_TO,
-    subject: EMAIL_SUBJECT,
-    body: EMAIL_BODY,
-  });
+  const { introText, openGmail } = useIntroSectionViewModel();
 
   return (
     <>
@@ -51,11 +40,9 @@ export function IntroSection() {
           width="80%"
           zIndex={9998}
         >
-          <HeadingText size={'2xl'}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </HeadingText>
+          <HeadingText size={"2xl"}>{introText}</HeadingText>
 
-          <Button mt="4" onClick={handleOpenGmail} colorScheme="teal">
+          <Button mt="4" onClick={openGmail} colorScheme="teal">
             Confirmar presença
           </Button>
         </Box>
