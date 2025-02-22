@@ -1,13 +1,14 @@
 import { AspectRatio, Box, Button, Image } from "@chakra-ui/react";
 import { HeadingText } from "@/presentation/components/typografy/heading";
 import { useIntroSectionViewModel } from "@/viewmodels/useIntroSectionViewModel";
+import { SectionContainer } from "@/presentation/components/layout/section-container";
 
 export function IntroSection() {
   const { introText, introButtonText, openGmail } = useIntroSectionViewModel();
 
   return (
     <>
-      <Box position="relative" height="100vh" width="100%">
+      <SectionContainer>
         <Box
           position="absolute"
           top="0"
@@ -46,7 +47,7 @@ export function IntroSection() {
             {introButtonText}
           </Button>
         </Box>
-      </Box>
+      </SectionContainer>
     </>
   );
 }
