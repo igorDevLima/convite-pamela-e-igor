@@ -8,7 +8,7 @@ export function HomeLayout({ children, ...rest }: LayoutProps) {
     <Grid templateRows="auto 1fr auto" height="100vh" {...rest}>
       <Header />
 
-      <Box as="main" padding={4}>
+      <Box as="main">
         {children}
       </Box>
 
