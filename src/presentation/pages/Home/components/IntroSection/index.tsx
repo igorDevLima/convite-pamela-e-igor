@@ -1,15 +1,13 @@
-import { Button, HStack } from "@chakra-ui/react";
 import {
-  DEFAULT_CENTER,
-  EMAIL_BODY,
-  EMAIL_SUBJECT,
-  EMAIL_TO,
-  GOOGLE_MAP_ID,
-  GOOGLE_MAPS_API_KEY,
-  POSITION,
-} from "./constants";
+  AspectRatio,
+  Box,
+  Button,
+  Image,
+} from "@chakra-ui/react";
+
 import { useOpenGmail } from "./hooks/useOpenGmail";
-import { MapGoogle } from "./components/MapGoogle";
+import { EMAIL_BODY, EMAIL_SUBJECT, EMAIL_TO } from "./constants";
+import { HeadingText } from "@/presentation/components/typografy/heading";
 
 export function IntroSection() {
   const { handleOpenGmail } = useOpenGmail({
@@ -20,21 +18,48 @@ export function IntroSection() {
 
   return (
     <>
-      <HStack>
-        <Button onClick={handleOpenGmail}>Confirmar presença</Button>
-      </HStack>
+      <Box position="relative" height="100vh" width="100%">
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          width="100%"
+          height="100%"
+          background="linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6))"
+          zIndex="1"
+        />
 
-      <MapGoogle
-        apiKey={GOOGLE_MAPS_API_KEY}
-        mapId={GOOGLE_MAP_ID}
-        defaultCenter={DEFAULT_CENTER}
-        zoom={18.6}
-        tilt={0}
-        gestureHandling={"greedy"}
-        renderingType="VECTOR"
-        disableDefaultUI={true}
-        position={POSITION}
-      />
+        <AspectRatio height="100vh" width="100%">
+          <Image
+            src="public/intro.jpg"
+            objectFit="cover"
+            width="100%"
+            height="100%"
+          />
+        </AspectRatio>
+
+        {/* Box com o texto sobre a imagem */}
+        <Box
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
+          padding="4"
+          borderRadius="md"
+          color="white"
+          textAlign="center"
+          width="80%"
+          zIndex={9998}
+        >
+          <HeadingText size={'2xl'}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </HeadingText>
+
+          <Button mt="4" onClick={handleOpenGmail} colorScheme="teal">
+            Confirmar presença
+          </Button>
+        </Box>
+      </Box>
     </>
   );
 }
