@@ -1,1 +1,4 @@
-export const fonts = { body: { value: "system-ui, sans-serif" } };
+export const fonts = {
+  heading: {value: "Playfair Display Variable, serif"},
+  body: {value: "Poppins, sans-serif"},
+};

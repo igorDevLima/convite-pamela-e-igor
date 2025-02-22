@@ -542,6 +542,16 @@
   resolved "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.2.9.tgz"
   integrity sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==
 
+"@fontsource-variable/playfair-display@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/@fontsource-variable/playfair-display/-/playfair-display-5.1.1.tgz"
+  integrity sha512-89gLVOcVRIp0aayWwTcaLGQxhxDT2ZIv7cFU/BjxcWA8iALi8SrlT7dNHdhakb8MeXc0UUw9n8k6kG+jWvX61A==
+
+"@fontsource/poppins@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/@fontsource/poppins/-/poppins-5.1.1.tgz"
+  integrity sha512-PQVKHGQOK+UpVNPzTFF9Z9ez3CIDkunfvRXGH95hiDoqWJc1shW4JFqe4tEoqnq7RtZaYrw9aWQq58L4eny5xg==
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.npmjs.org/@humanfs/core/-/core-0.19.1.tgz"
@@ -1687,6 +1697,8 @@ convert-source-map@^2.0.0:
   dependencies:
     "@chakra-ui/react" "^3.5.1"
     "@emotion/react" "^11.14.0"
+    "@fontsource-variable/playfair-display" "^5.1.1"
+    "@fontsource/poppins" "^5.1.1"
     "@vis.gl/react-google-maps" "^1.5.1"
     convite-pamela-e-igor "file:"
     next-themes "^0.4.4"

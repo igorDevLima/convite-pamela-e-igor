@@ -12,6 +12,8 @@
   "dependencies": {
     "@chakra-ui/react": "^3.5.1",
     "@emotion/react": "^11.14.0",
+    "@fontsource-variable/playfair-display": "^5.1.1",
+    "@fontsource/poppins": "^5.1.1",
     "@vis.gl/react-google-maps": "^1.5.1",
     "convite-pamela-e-igor": "file:",
     "next-themes": "^0.4.4",
