@@ -2,9 +2,7 @@ export const getIntroText = (): string => {
   return "Bem-vindo ao nosso casamento!";
 };
 
-export const getLocalization = (): string => {
-  return "Localização: Rua Exemplo, 123";
-};
+export const getIntroButtonText = (): string => "confirmar presença"
 
 const getEmailTo = (): string => import.meta.env.VITE_MAIL_TO;
 

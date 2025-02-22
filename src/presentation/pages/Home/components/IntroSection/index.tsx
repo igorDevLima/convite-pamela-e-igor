@@ -3,7 +3,7 @@ import { HeadingText } from "@/presentation/components/typografy/heading";
 import { useIntroSectionViewModel } from "@/viewmodels/useIntroSectionViewModel";
 
 export function IntroSection() {
-  const { introText, openGmail } = useIntroSectionViewModel();
+  const { introText, introButtonText, openGmail } = useIntroSectionViewModel();
 
   return (
     <>
@@ -43,7 +43,7 @@ export function IntroSection() {
           <HeadingText size={"2xl"}>{introText}</HeadingText>
 
           <Button mt="4" onClick={openGmail} colorScheme="teal">
-            Confirmar presença
+            {introButtonText}
           </Button>
         </Box>
       </Box>

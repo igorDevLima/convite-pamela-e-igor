@@ -3,12 +3,12 @@ import { useCallback } from "react";
 import {
   getEmailURL,
   getIntroText,
-  getLocalization,
+  getIntroButtonText,
 } from "../models/introSectionModel";
 
 export const useIntroSectionViewModel = () => {
   const introText = getIntroText();
-  const localization = getLocalization();
+  const introButtonText = getIntroButtonText();
 
   const emailURL = getEmailURL();
 
@@ -18,7 +18,7 @@ export const useIntroSectionViewModel = () => {
 
   return {
     introText,
-    localization,
+    introButtonText,
     openGmail,
   };
 };
