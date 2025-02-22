@@ -10,7 +10,7 @@ export function SectionContainer({
   ...props
 }: SectionContainer) {
   return (
-    <Box position={position} height={height} width={width} {...props}>
+    <Box position={position} minHeight={height} width={width} {...props}>
       {children}
     </Box>
   );
