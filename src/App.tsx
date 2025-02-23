@@ -1,4 +1,4 @@
-import HomePage from "./presentation/pages/Home";
+import HomePage from "./presentation/views/Home";
 import { HomeLayout } from "./presentation/layouts/Home";
 
 function App() {
