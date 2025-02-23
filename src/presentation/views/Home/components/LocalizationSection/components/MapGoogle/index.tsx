@@ -1,24 +1,16 @@
 import { useState } from "react";
-import {
-  Container,
-  Box,
-  Spinner,
-  IconButton,
-  useClipboard,
-  HStack,
-} from "@chakra-ui/react";
+import { Container, Box, Spinner, IconButton, HStack } from "@chakra-ui/react";
 import {
   APIProvider,
   Map,
   AdvancedMarker,
   MapProps,
-  AdvancedMarkerProps,
 } from "@vis.gl/react-google-maps";
 import { FaWaze, FaGoogle, FaCopy, FaCheck } from "react-icons/fa6";
+import { MapPosition } from "./types";
+import { useMapGoogleViewModel } from "./viewmodels";
 
-interface MapGoogleProps
-  extends MapProps,
-    Pick<AdvancedMarkerProps, "position"> {
+interface MapGoogleProps extends MapProps, MapPosition {
   apiKey: string;
 }
 
@@ -65,8 +57,15 @@ export function MapGoogle({
   ...rest
 }: MapGoogleProps) {
   const [isLoading, setIsLoading] = useState(true);
-  const googleLocationUrl = `https://www.google.com/maps?q=${position?.lat},${position?.lng}`;
-  const { copy, copied } = useClipboard({ value: googleLocationUrl });
+
+  const {
+    handleCopyToClipboard,
+    isCopiedToClipboard,
+    handleOpenGoogleMap,
+    handleOpenWaze,
+  } = useMapGoogleViewModel({
+    position,
+  });
 
   return (
     <Container>
@@ -87,23 +86,17 @@ export function MapGoogle({
         <MapControlButton
           label="Open location with Waze"
           icon={<FaWaze />}
-          onClick={() =>
-            window.open(
-              `https://www.waze.com/ul?ll=${encodeURIComponent(
-                `${position?.lat},${position?.lng}`
-              )}&navigate=yes&zoom=17`
-            )
-          }
+          onClick={handleOpenWaze}
         />
         <MapControlButton
           label="Abrir no Google Maps"
           icon={<FaGoogle />}
-          onClick={() => window.open(googleLocationUrl)}
+          onClick={handleOpenGoogleMap}
         />
         <MapControlButton
           label="Copiar localização"
-          icon={copied ? <FaCheck /> : <FaCopy />}
-          onClick={copy}
+          icon={isCopiedToClipboard ? <FaCheck /> : <FaCopy />}
+          onClick={handleCopyToClipboard}
         />
       </HStack>
     </Container>
