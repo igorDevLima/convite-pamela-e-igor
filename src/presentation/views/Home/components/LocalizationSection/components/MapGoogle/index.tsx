@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Container, Box, Spinner, IconButton, HStack } from "@chakra-ui/react";
 import {
   APIProvider,
@@ -6,7 +5,6 @@ import {
   AdvancedMarker,
   MapProps,
 } from "@vis.gl/react-google-maps";
-import { FaWaze, FaGoogle, FaCopy, FaCheck } from "react-icons/fa6";
 import { MapPosition } from "./types";
 import { useMapGoogleViewModel } from "./viewmodels";
 
@@ -45,6 +43,7 @@ const MapControlButton = ({
     rounded="full"
     variant="ghost"
     onClick={onClick}
+    color={"primary"}
   >
     {icon}
   </IconButton>
@@ -56,26 +55,20 @@ export function MapGoogle({
   position,
   ...rest
 }: MapGoogleProps) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const {
-    handleCopyToClipboard,
-    isCopiedToClipboard,
-    handleOpenGoogleMap,
-    handleOpenWaze,
-  } = useMapGoogleViewModel({
-    position,
-  });
+  const { mapActions, mapIsLoading, handleMapIsLoading } =
+    useMapGoogleViewModel({
+      position,
+    });
 
   return (
     <Container>
       <Box width="100%" height="300px" position="relative">
-        {isLoading && <LoadingOverlay />}
+        {mapIsLoading && <LoadingOverlay />}
         <APIProvider apiKey={apiKey}>
           <Map
             style={{ width: "100%", height: "100%" }}
             mapId={mapId}
-            onTilesLoaded={() => setIsLoading(false)}
+            onTilesLoaded={() => handleMapIsLoading(false)}
             {...rest}
           >
             <AdvancedMarker position={position} />
@@ -83,21 +76,13 @@ export function MapGoogle({
         </APIProvider>
       </Box>
       <HStack align="flex-start" gap={8}>
-        <MapControlButton
-          label="Open location with Waze"
-          icon={<FaWaze />}
-          onClick={handleOpenWaze}
-        />
-        <MapControlButton
-          label="Abrir no Google Maps"
-          icon={<FaGoogle />}
-          onClick={handleOpenGoogleMap}
-        />
-        <MapControlButton
-          label="Copiar localização"
-          icon={isCopiedToClipboard ? <FaCheck /> : <FaCopy />}
-          onClick={handleCopyToClipboard}
-        />
+        {mapActions.map(({ icon, label, onclick }) => {
+          const Icon = icon;
+
+          return (
+            <MapControlButton label={label} icon={<Icon />} onClick={onclick} />
+          );
+        })}
       </HStack>
     </Container>
   );
