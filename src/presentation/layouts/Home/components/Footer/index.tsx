@@ -8,13 +8,19 @@ export function Footer({ ...rest }: FooterProps) {
   const { copyright, photographerData } = useFooterViewModel();
 
   return (
-    <Box as="footer" background="primary" padding={4} {...rest}>
+    <Box
+      as="footer"
+      background="primary"
+      padding={"4rem 2rem 1rem 2rem"}
+      {...rest}
+    >
       <Flex
         maxW="1200px"
         mx="auto"
         justify="space-between"
         align="center"
         direction={{ base: "column", md: "row" }}
+        gap={8}
       >
         <Image src="public/logo.svg" filter={`invert(100%)`} />
 
@@ -29,7 +35,7 @@ export function Footer({ ...rest }: FooterProps) {
             fontWeight="bold"
             display="flex"
             alignItems="center"
-            focusRing={'none'}
+            focusRing={"none"}
           >
             <Text as="span" mr={0.1}>
               {photographerData.name}
