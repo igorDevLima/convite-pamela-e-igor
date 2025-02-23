@@ -5,7 +5,7 @@ import { Footer } from "./components/Footer";
 
 export function HomeLayout({ children, ...rest }: LayoutProps) {
   return (
-    <Grid templateRows="auto 1fr auto" height="100vh" {...rest}>
+    <Grid templateRows="auto 1fr auto" {...rest}>
       <Header />
 
       <Box as="main">
